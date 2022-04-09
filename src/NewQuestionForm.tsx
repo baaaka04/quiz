@@ -75,7 +75,7 @@ export function Form(props: IForm) {
                 <input type="number" name="answerNumber" value={inputNum} onChange={(e) => setNum(e.target.value)} />
 
                 <div>
-                    <button type="submit">Добавить</button>
+                    <button className="add-button" type="submit">Добавить</button>
                 </div>
 
                 <ToastContainer
