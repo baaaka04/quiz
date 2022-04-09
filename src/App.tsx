@@ -44,7 +44,6 @@ let Home = (props: IHome) => {
         options={item.options}
         answer={item.answer}
         corAnswer={item.corAnswer}
-        qIndex={ind}
       />
     )
   }</>

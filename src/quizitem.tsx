@@ -5,8 +5,7 @@ export interface IQuizItem {
   question: string;
   answer: string;
   corAnswer: number;
-  options: { value: string }[];
-  qIndex: number
+  options: { value: string }[]
 }
 
 export function QuizItem(props: IQuizItem) {
@@ -17,6 +16,9 @@ export function QuizItem(props: IQuizItem) {
 
 
   function isAnswerCorrect(answerNum: number) {
+    if (isDisabled) {
+      return
+    }
     props.corAnswer === answerNum ? showRigthAnswer() : showWrongAnswer()
     setClickedNum(answerNum)
   }
@@ -47,7 +49,6 @@ export function QuizItem(props: IQuizItem) {
             funOnClick={isAnswerCorrect}
             index={ind + 1}
             isDisabled={isDisabled}
-            qIndex={props.qIndex}
             clickedNum={clickedNum}
           />
         )

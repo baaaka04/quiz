@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 interface IForm extends RouteComponentProps {
     quizitems: IQuizItem[],
-    setNewQuizItems: (params: Omit<IQuizItem, "qIndex">[]) => void
+    setNewQuizItems: (params: IQuizItem[]) => void
 }
 
 
@@ -59,8 +59,8 @@ export function Form(props: IForm) {
             <div>
                 <p>Вопрос</p>
                 <input type="text" name="question" value={inputQuestion} onChange={(e) => setQuestion(e.target.value)} />
-                <p>Варианты ответа</p>
 
+                <p>Варианты ответа</p>
                 <div>
                     {opts.map((opt, i) => <div key={i}>
                         <input type="text" name="options" value={opt.value} onChange={e => onChange(e, i)} />
@@ -70,8 +70,10 @@ export function Form(props: IForm) {
 
                 <p>Ответ</p>
                 <input type="text" name="answer" value={inputAnswer} onChange={(e) => setAnswer(e.target.value)} />
+
                 <p>Номер верного ответа</p>
                 <input type="number" name="answerNumber" value={inputNum} onChange={(e) => setNum(e.target.value)} />
+
                 <div>
                     <button type="submit">Добавить</button>
                 </div>
