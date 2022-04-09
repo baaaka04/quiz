@@ -62,15 +62,15 @@ function App() {
     <div className="App">
       <h1>QUIZ!</h1>
       <nav>
-        <Link className="nav-link" to="/">Home</Link> |{" "}
-        <Link className="nav-link" to="new">Add new question</Link>
+        <Link className="nav-link" to="/quiz/">Home</Link> |{" "}
+        <Link className="nav-link" to="/quiz/new">Add new question</Link>
       </nav>
 
       <Router>
-        <Home path="/"
+        <Home path="/quiz/"
           quizitems={quizitems}
         />
-        <Form path="new"
+        <Form path="/quiz/new"
           quizitems={quizitems}
           setNewQuizItems={setQuizitems}
         />

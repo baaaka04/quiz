@@ -5,14 +5,31 @@ interface IAnswer {
     funOnClick: Function;
     index: number;
     isDisabled: boolean,
-    qIndex: number
+    qIndex: number,
+    clickedNum?: number
+}
+
+function getColor(isClicked: boolean, answer: number, rightAnswer: number, clickedAnswer?: number) {
+    if (!isClicked) {
+        return ''
+    }
+    if (answer === rightAnswer) {
+        return 'green'
+    }
+    if (answer === clickedAnswer && clickedAnswer !== rightAnswer) {
+        return 'red'
+    }
+
 }
 
 export function Answer(props: IAnswer) {
+
+    const colorClass = getColor(props.isDisabled, props.index, props.rAnswer, props.clickedNum)
+
     return (
-        <div>
-            <input disabled={props.isDisabled} id={"q" + props.qIndex + "a" + props.index} type="radio" onClick={() => props.funOnClick(props.index)} />
-            <label htmlFor={"q" + props.qIndex + "a" + props.index}>{props.index}.{props.option}</label>
+        <div className={`answer ${colorClass}`} onClick={() => props.funOnClick(props.index)}>
+            <input disabled={props.isDisabled} id={"q" + props.qIndex + "a" + props.index} type="radio" />
+            <label htmlFor={"q" + props.qIndex + "a" + props.index}>{props.index}. {props.option}</label>
         </div>
     )
 }

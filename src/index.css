@@ -9,6 +9,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -28,4 +33,24 @@ button {
 .nav-link {
   text-decoration: none;
   color: rgb(84, 76, 130);
+}
+
+.answer {
+  border: 1px solid white;
+  margin: 4px;
+}
+
+.answer-comment {
+  border: 1px solid white;
+  margin: 5px;
+  background-color: #363b45;
+  padding: 4px;
+}
+
+.answer.red {
+  border: 1px solid rgb(233, 4, 4);
+}
+
+.answer.green {
+  border: 1px solid rgb(22, 225, 76);
 }

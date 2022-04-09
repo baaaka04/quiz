@@ -10,13 +10,15 @@ export interface IQuizItem {
 }
 
 export function QuizItem(props: IQuizItem) {
-  const [isAnswerVisible, setVisible] = useState(false)
-  const [isCorrect, setIsCorrect] = useState(true)
+  const [isAnswerVisible, setVisible] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(true);
+  const [clickedNum, setClickedNum] = useState<number>()
   const isDisabled = isAnswerVisible;
 
 
   function isAnswerCorrect(answerNum: number) {
     props.corAnswer === answerNum ? showRigthAnswer() : showWrongAnswer()
+    setClickedNum(answerNum)
   }
 
   function showRigthAnswer() {
@@ -46,6 +48,7 @@ export function QuizItem(props: IQuizItem) {
             index={ind + 1}
             isDisabled={isDisabled}
             qIndex={props.qIndex}
+            clickedNum={clickedNum}
           />
         )
       }
@@ -53,7 +56,7 @@ export function QuizItem(props: IQuizItem) {
         {isAnswerVisible ?
           <div>
             <p> {isCorrect ? right : wrong} </p>
-            <p >{props.answer}</p>
+            <p className="answer-comment">{props.answer}</p>
           </div>
           : null}
       </div>
