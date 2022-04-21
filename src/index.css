@@ -9,7 +9,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-input {
+input,
+select {
   margin-bottom: 3px;
   width: 100%;
   border: none;
@@ -28,7 +29,7 @@ input {
 }
 
 .App {
-  width: 700px;
+  max-width: 700px;
   margin: 0 auto;
   text-align: center;
 }
@@ -56,4 +57,8 @@ input {
 
 .answer.green {
   border: 1px solid rgb(22, 225, 76);
+}
+
+.answer:hover {
+  background-color: #363b45;
 }

@@ -13,7 +13,7 @@ interface IForm extends RouteComponentProps {
 export function Form(props: IForm) {
     let [inputQuestion, setQuestion] = useState<string>('');
     let [inputAnswer, setAnswer] = useState('');
-    let [inputNum, setNum] = useState('');
+    let [inputNum, setNum] = useState(1);
     let [opts, setOpts] = useState([{
         value: ''
     }]);
@@ -21,7 +21,7 @@ export function Form(props: IForm) {
     function resetForm() {
         setQuestion('');
         setAnswer('');
-        setNum('');
+        setNum(1);
         setOpts([{ value: '' }]);
     }
 
@@ -45,7 +45,7 @@ export function Form(props: IForm) {
             question: inputQuestion,
             options: opts.slice(0, -1),
             answer: inputAnswer,
-            corAnswer: Number(inputNum),
+            corAnswer: inputNum,
         }
         props.setNewQuizItems([...props.quizitems, newQuizItem]);
         localStorage.setItem('localStorageQuizItems', JSON.stringify([...props.quizitems, newQuizItem]));
@@ -71,8 +71,11 @@ export function Form(props: IForm) {
                 <p>Ответ</p>
                 <input type="text" name="answer" value={inputAnswer} onChange={(e) => setAnswer(e.target.value)} />
 
-                <p>Номер верного ответа</p>
-                <input type="number" name="answerNumber" value={inputNum} onChange={(e) => setNum(e.target.value)} />
+                <select name="" id="" onChange={(e) => setNum(+e.target.value)}>
+                    {opts.map((opt, i) =>
+                        <option value={i + 1} key={i + opt.value}>{opt.value}</option>
+                    ).slice(0, -1)}
+                </select>
 
                 <div>
                     <button className="add-button" type="submit">Добавить</button>
