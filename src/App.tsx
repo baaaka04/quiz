@@ -62,7 +62,8 @@ function App() {
       <h1>QUIZ!</h1>
       <nav>
         <Link className="nav-link" to="/quiz/">Главная</Link> |{" "}
-        <Link className="nav-link" to="/quiz/new">Добавить вопрос</Link>
+        <Link className="nav-link" to="/quiz/new">Добавить вопрос</Link> |{" "}
+        <span className="nav-link" onClick={() => setQuizitems(initialQuizItems)}>Очистить</span>
       </nav>
 
       <Router>

@@ -37,6 +37,7 @@ select {
 .nav-link {
   text-decoration: none;
   color: rgb(84, 76, 130);
+  cursor: pointer;
 }
 
 .answer {
