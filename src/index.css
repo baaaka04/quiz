@@ -43,6 +43,7 @@ select {
 .answer {
   border: 1px solid white;
   margin: 4px;
+  cursor: pointer;
 }
 
 .answer-comment {
